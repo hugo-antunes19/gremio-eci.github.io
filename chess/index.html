@@ -395,6 +395,201 @@
             </div>
         </section>
         
+        <section id="upper-bracket-graph">
+            <h2>Árvore da Upper Bracket</h2>
+            <div class="mermaid">
+            graph LR;
+
+            %% === DEFINIÇÃO DE ESTILOS ===
+            classDef default fill:#f9f9f9,stroke:#333,stroke-width:1.5px,color:#333;
+            classDef winner fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20;
+            classDef finalNode fill:#FFD700,stroke:#B8860B,stroke-width:3px,color:#222;       
+            classDef semifinalNode fill:#e3f2fd,stroke:#0d47a1,stroke-width:2px,color:#0d47a1;
+
+            %% === FASE 1 ===
+            subgraph Fase 1
+                direction LR
+                G1["<b>Game 1</b><br/>Daniel Barros<br/>vs<br/>Giovanni Faletti (W)"]
+                G2["<b>Game 2</b><br/>Alexandre Chiacchio<br/>vs<br/>Marco Antônio (W)"]
+                G3["<b>Game 3</b><br/>Leo Nunes (W)<br/>vs<br/>WO"]
+                G4["<b>Game 4</b><br/>Jeson Wen (W)<br/>vs<br/>Arthur Ramos"]
+                G5["<b>Game 5</b><br/>João Cotrim (W)<br/>vs<br/>Paulo Vitor"]
+                G6["<b>Game 6</b><br/>João Moretti (W)<br/>vs<br/>Filipe Almeida"]
+            end
+
+            %% === FASE 2 ===
+            subgraph Fase 2
+                direction LR
+                G7["<b>Game 7</b><br/>Joseph (W)<br/>vs<br/>Alex Teixeira"]
+                G8["<b>Game 8</b><br/>Leo Drumonnd<br/>vs<br/>Alban Dujardib (W)"]
+                G9["<b>Game 9</b><br/>Vinicius Alcântara (W)<br/>vs<br/>Giovanni Faletti"]
+                G10["<b>Game 10</b><br/>João Galetti (W)<br/>vs<br/>Marco Antônio"]
+                G11["<b>Game 11</b><br/>João Lacerda (W)<br/>vs<br/>Leonardo Nunes"]
+                G12["<b>Game 12</b><br/>Lucas Perrin (W)<br/>vs<br/>Jeson Wen"]
+                G13["<b>Game 13</b><br/>Enzo Sampaio (W)<br/>vs<br/>João Cotrim"]
+                G14["<b>Game 14</b><br/>Pedro Cintra (W)<br/>vs<br/>João Moretti"]
+            end
+
+            %% === FASE 3 ===
+            subgraph Fase 3
+                direction LR
+                G25["<b>Game 25</b><br/>Vinícius Alcântara (W)<br/>vs<br/>Joseph Dario"]
+                G26["<b>Game 26</b><br/>João Galetti<br/>vs<br/>João Lacerda"]
+                G27["<b>Game 27</b><br/>Lucas Perrin (W)<br/>vs<br/>Alban Dujardib"]
+                G28["<b>Game 28</b><br/>Enzo Sampaio<br/>vs<br/>Pedro Cintra"]
+            end
+
+            %% === SEMIFINAIS ===
+            subgraph Semifinal
+                direction LR
+                SF1["<b>Semifinal 1</b><br/>Vinícius Alcântara<br/>vs<br/>Vencedor G26"]
+                SF2["<b>Semifinal 2</b><br/>Lucas Perrin<br/>vs<br/>Vencedor G28"]
+            end
+
+            %% === FINAL ===
+            subgraph Final
+                direction LR
+                F["<b>Final Upper</b><br/>Vencedor SF1<br/>vs<br/>Vencedor SF2"]
+            end
+            
+            %% === CONEXÕES ===
+            G1 --> G9;
+            G2 --> G10;
+            G3 --> G11;
+            G4 --> G12;
+            G5 --> G13;
+            G6 --> G14;
+            
+            G7 --> G25;
+            G9 --> G25;
+
+            G8 --> G27;
+            G12 --> G27;
+
+            G10 --> G26;
+            G11 --> G26;
+
+            G13 --> G28;
+            G14 --> G28;
+            
+            G25 --> SF1;
+            G26 --> SF1;
+            
+            G27 --> SF2;
+            G28 --> SF2;
+            
+            SF1 --> F;
+            SF2 --> F;
+
+            %% === APLICAÇÃO DOS ESTILOS ===
+            class G1,G2,G3,G4,G5,G6,G7,G8,G9,G10,G11,G12,G13,G14,G25,G26,G27,G28 default;
+            class SF1,SF2 semifinalNode;
+            class F finalNode;
+
+            </div>
+        </section>
+
+        <section id="lower-bracket-graph">
+            <h2>Árvore da Lower Bracket</h2>
+            <div class="mermaid">
+            graph LR;
+
+            %% === DEFINIÇÃO DE ESTILOS ===
+            classDef default fill:#f9f9f9,stroke:#333,stroke-width:1.5px,color:#333;
+            classDef winner fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20;
+            classDef finalNode fill:#cd7f32,stroke:#3e2723,stroke-width:2px,color:white;
+            classDef importantNode fill:#e3f2fd,stroke:#0d47a1,stroke-width:2px,color:#0d47a1;
+
+            %% === FASE 1 (LOWER) ===
+            subgraph Fase 1 Lower
+                direction LR
+                LG15["<b>Game 15</b><br/>Alex Teixeira (W)<br/>vs<br/> Paulo Vitor"]
+                LG16["<b>Game 16</b><br/>Leo Drumonnd<br/>vs<br/> Alexandre Chiacchio (W)"]
+                LG17["<b>Game 17</b><br/> Filipe Almeida<br/>vs<br/> Giovanni Faletti (W)"]
+                LG18["<b>Game 18</b><br/> Arthur Ramos<br/>vs<br/> Leonardo Nunes"]
+                LG19["<b>Game 19</b><br/> Jeson Wen (W)<br/>vs<br/> WO"]
+                LG20["<b>Game 20</b><br/> Daniel Barros<br/>vs<br/> João Moretti"]
+            end
+            
+            %% === FASE 2 (LOWER) ===
+            subgraph Fase 2 Lower
+                direction LR
+                LG21["<b>Game 21</b><br/>Alex Teixeira<br/>vs<br/>Giovanni Faletti"]
+                LG22["<b>Game 22</b><br/>Vencedor G18<br/>vs<br/> Marco Antônio"]
+                LG23["<b>Game 23</b><br/>Alexandre Chiacchio<br/>vs<br/> Jeson Wen (W)"]
+                LG24["<b>Game 24</b><br/>Vencedor G20<br/>vs<br/> João Cotrim"]
+            end
+
+            %% === FASE 3 (LOWER) ===
+            subgraph Fase 3 Lower
+                direction LR
+                LG29["<b>Game 29</b><br/>Jeson Wen<br/>vs<br/> Joseph Dario"]
+                LG30["<b>Game 30</b><br/>Vencedor G24<br/>vs<br/>Perdedor G26"]
+                LG31["<b>Game 31</b><br/>Vencedor G21<br/>vs<br/> Alban Dujardib"]
+                LG32["<b>Game 32</b><br/>Vencedor G22<br/>vs<br/>Perdedor G28"]
+            end
+
+            %% === FASE 4 (LOWER) ===
+            subgraph Fase 4 Lower
+                direction LR
+                LG33["<b>Game 33</b><br/>Vencedor G29<br/>vs<br/>Vencedor G30"]
+                LG34["<b>Game 34</b><br/>Vencedor G31<br/>vs<br/>Vencedor G32"]
+            end
+
+            %% === FASE 5 (LOWER) ===
+            subgraph Fase 5 Lower
+                direction LR
+                LG37["<b>Game 37</b><br/>Vencedor G33<br/>vs<br/>Perdedor SF 2 Upper"]
+                LG38["<b>Game 38</b><br/>Vencedor G34<br/>vs<br/>Perdedor SF 1 Upper"]
+            end
+
+            %% === FASE 6 (LOWER) ===
+            subgraph Fase 6 Lower
+                direction LR
+                LG39["<b>Game 39</b><br/>Vencedor G37<br/>vs<br/>Vencedor G38"]
+            end
+            
+            %% === FINAL LOWER BRACKET ===
+            subgraph Final Lower
+                direction LR
+                FL["<b>Final Lower</b><br/>Vencedor G39<br/>vs<br/>Perdedor Final Upper"]
+            end
+
+            %% === CONEXÕES ===
+            LG15 --> LG21;
+            LG17 --> LG21;
+            LG18 --> LG22;
+            LG16 --> LG23;
+            LG19 --> LG23;
+            LG20 --> LG24;
+            
+            LG21 --> LG31;
+            LG22 --> LG32;
+            LG23 --> LG29;
+            LG24 --> LG30;
+            
+            LG29 --> LG33;
+            LG30 --> LG33;
+            LG31 --> LG34;
+            LG32 --> LG34;
+
+            LG33 --> LG37;
+            LG34 --> LG38;
+
+            LG37 --> LG39;
+            LG38 --> LG39;
+
+            LG39 --> FL;
+
+            %% === APLICAÇÃO DOS ESTILOS ===
+            classDef default fill:#f9f9f9,stroke:#333,stroke-width:1.5px,color:#333;
+            class LG15,LG16,LG17,LG18,LG19,LG20,LG21,LG22,LG23,LG24,LG29,LG30,LG31,LG32,LG33,LG34 default;
+            class LG37,LG38,LG39 importantNode;
+            class FL finalNode;
+
+            </div>
+        </section>
+
         <div class="brackets">
             <section>
                 <h2>Upper Bracket</h2>
@@ -673,6 +868,12 @@
             <p>Para mais informações, entre em contato com o Grêmio nos grupos de WhatsApp</p>
         </div>
     </footer>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.mjs';
+        // mermaid.initialize({ startOnLoad: true }); // Você pode usar essa linha ou a de baixo
+        mermaid.run();
+    </script>
 
     <script>
         // Script para o menu mobile
